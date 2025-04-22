@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NewTaskForm({ categories }) {
+function NewTaskForm({ categories, onTaskFormSubmit }) {
   const categoryOptions = categories.filter((cat) => cat !== "All");
 
   const [text, setText] = useState("");
@@ -12,7 +12,7 @@ function NewTaskForm({ categories }) {
       text,
       category,
     };
-    console.log("New task submitted:", newTask);
+    onTaskFormSubmit(newTask);
 
     setText("");
     setCategory(categoryOptions[0]);
